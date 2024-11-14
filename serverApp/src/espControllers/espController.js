@@ -7,16 +7,16 @@ module.exports = {
         return res.send('Resposta do Servidor');
     },
 
-    async deptos(req,res) {
-        const result = await knex('depart');
+    async espec(req,res) {
+        const result = await knex('espec');
         return res.json(result);
     },
 
     async create(req,res) {
     try {
-        const {dep_nome} = req.body;
-        await knex('depart').insert({
-            dep_nome,
+        const {esp_nome} = req.body;
+        await knex('espec').insert({
+            esp_nome,
         });
         return res.status(201).send();
     }
@@ -27,12 +27,12 @@ module.exports = {
 
    async update(req,res) {
    try {
-       const {dep_cod} = req.params;
-       const {dep_nome} = req.body;
-       await knex('depart').update(
-            {dep_nome,
+       const {esp_cod} = req.params;
+       const {esp_nome} = req.body;
+       await knex('espec').update(
+            {esp_nome,
 
-            }).where({dep_cod});
+            }).where({esp_cod});
        return res.send();
    }
    catch (error)
@@ -43,10 +43,9 @@ module.exports = {
 
    async delete(req,res) {
    try {
-        console.log('passei aqui');
-        
-       const {dep_cod} = req.params;
-       await knex('depart').del().where({dep_cod});
+
+       const {esp_cod} = req.params;
+       await knex('espec').del().where({esp_cod});
        return res.send();
    }
    catch (error)
