@@ -13,3 +13,8 @@ create table medico
  med_nome varchar(30) not null,
  esp_cod integer not null,
  foreign key(esp_cod) references espec(esp_cod));
+
+  create table usuario
+ (usu_id integer auto_increment primary key,
+ usu_nome varchar(20) not null,
+ usu_senha varchar(10) not null);
